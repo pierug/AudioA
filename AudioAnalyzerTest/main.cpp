@@ -1,8 +1,10 @@
-#include <QCoreApplication>
+#include <QtTest/QtTest>
+#include "wavefiletest.h"
 
-int main(int argc, char *argv[])
+int main()
 {
-    QCoreApplication a(argc, argv);
+    WaveFileTest waveFileTest;
+    QTest::qExec(&waveFileTest);
 
-    return a.exec();
+    return 0;
 }

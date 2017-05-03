@@ -6,7 +6,11 @@
 
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += multimedia \
+      multimediawidgets \
+      widgets \
+
+
 
 TARGET = AudioAnalyzerVer2
 TEMPLATE = app
@@ -24,8 +28,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    analyzerwindow.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    analyzerwindow.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    analyzerwindow.ui

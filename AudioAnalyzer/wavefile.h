@@ -1,11 +1,26 @@
-#ifndef WAVEFILE_H
-#define WAVEFILE_H
+#ifndef WAVFILE_H
+#define WAVFILE_H
 
+#include <QObject>
+#include <QFile>
+#include <QtMultimedia/QAudioFormat>
 
-class WaveFile
+class WavFile : public QFile
 {
 public:
-    WaveFile();
+    WavFile(QObject *parent = 0);
+
+    using QFile::open;
+    bool open(const QString &fileName);
+    const QAudioFormat &fileFormat() const;
+    qint64 headerLength() const;
+
+private:
+    bool readHeader();
+
+private:
+    QAudioFormat m_fileFormat;
+    qint64 m_headerLength;
 };
 
-#endif // WAVEFILE_H
+#endif // WAVFILE_H
